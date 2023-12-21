@@ -234,10 +234,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-            final Post post = posts[index];
-            return Postcontainer(post: post);
-          }))
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final Post post = posts[index];
+              return Postcontainer(post: post);
+            }),
+          ),
         ],
       ),
     );
@@ -281,11 +283,37 @@ class Postcontainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       color: Colors.white,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Postheader(
-            post: post,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Postheader(
+                  post: post,
+                ),
+                const SizedBox(
+                  height: 4.0,
+                ),
+                Text(post.caption),
+                post.imageUrl != null
+                    ? const SizedBox.shrink()
+                    : const SizedBox(
+                        height: 6.0,
+                      )
+              ],
+            ),
           ),
+          post.imageUrl != null
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Image(image: NetworkImage(post.imageUrl)),
+                )
+              : const SizedBox.shrink(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: PostStats(post: post),
+          )
         ],
       ),
     );
@@ -304,19 +332,190 @@ class Postheader extends StatelessWidget {
         const SizedBox(
           width: 8.0,
         ),
-        Column(
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                post.user.name,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+              Row(
+                children: [
+                  Text(
+                    '${post.timeAgo}  . ',
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12.0),
+                  ),
+                  Icon(
+                    Icons.public,
+                    color: Colors.grey[600],
+                    size: 12.0,
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
+      ],
+    );
+  }
+}
+
+class PostStats extends StatelessWidget {
+  final Post post;
+
+  const PostStats({super.key, required this.post});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
           children: [
-            Text(post.user.name),
-            Row(
-              children: [
-                Text('${post.timeAgo}  . '),
-                Icon(
-                  Icons.public,
-                  color: Colors.grey[600],
-                  size: 12.0,
-                )
-              ],
-            )
+            Container(
+              padding: const EdgeInsets.all(4.0),
+              decoration: const BoxDecoration(
+                  color: palette.facebookBlue, shape: BoxShape.circle),
+              child: const Icon(
+                Icons.thumb_up,
+                size: 10.0,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(
+              width: 4.0,
+            ),
+            Expanded(
+              child: Text(
+                '${post.likes} ',
+                style: TextStyle(color: Colors.grey[600]),
+              ),
+            ),
+            Text(
+              '${post.comments} comments ',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            Text(
+              ' ${post.shares} shares',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+          ],
+        ),
+        const SizedBox(height: 4.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 40,
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Expanded(
+                            child: Material(
+                          child: InkWell(
+                            onTap: () => print('like'),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.thumb_up,
+                                    color: Colors.grey[600],
+                                  ),
+                                  Text(
+                                    'Like',
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 40,
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Expanded(
+                          child: Material(
+                            child: InkWell(
+                              onTap: () => print('like'),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.comment_bank_outlined,
+                                      color: Colors.grey[600],
+                                    ),
+                                    Text(
+                                      'comment',
+                                      style: TextStyle(color: Colors.grey[600]),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 40,
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Expanded(
+                            child: Material(
+                          child: InkWell(
+                            onTap: () => print('like'),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.share_outlined,
+                                    color: Colors.grey[600],
+                                  ),
+                                  Text(
+                                    'Share',
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         )
       ],

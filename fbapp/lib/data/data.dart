@@ -109,34 +109,34 @@ final List<User> onlineUsers = [
 
 final List<Story> stories = [
   Story(
-    user: onlineUsers[2],
+    user: onlineUsers[0],
     imageUrl:
         'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
   ),
   Story(
-    user: onlineUsers[6],
+    user: onlineUsers[1],
     imageUrl:
         'https://images.unsplash.com/photo-1499363536502-87642509e31b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     isViewed: true,
   ),
   Story(
-    user: onlineUsers[3],
+    user: onlineUsers[2],
     imageUrl:
         'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
   ),
   Story(
-    user: onlineUsers[9],
+    user: onlineUsers[3],
     imageUrl:
         'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     isViewed: true,
   ),
   Story(
-    user: onlineUsers[7],
+    user: onlineUsers[4],
     imageUrl:
         'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
   ),
   Story(
-    user: onlineUsers[2],
+    user: onlineUsers[5],
     imageUrl:
         'https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
   ),
@@ -147,18 +147,18 @@ final List<Story> stories = [
     isViewed: true,
   ),
   Story(
-    user: onlineUsers[3],
+    user: onlineUsers[7],
     imageUrl:
         'https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=624&q=80',
   ),
   Story(
-    user: onlineUsers[9],
+    user: onlineUsers[8],
     imageUrl:
         'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     isViewed: true,
   ),
   Story(
-    user: onlineUsers[7],
+    user: onlineUsers[9],
     imageUrl:
         'https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80',
   ),
@@ -175,7 +175,7 @@ final List<Post> posts = [
     shares: 96,
   ),
   Post(
-    user: onlineUsers[4],
+    user: onlineUsers[0],
     caption: 'This is a very good boi.',
     timeAgo: '8hr',
     imageUrl:
@@ -185,7 +185,7 @@ final List<Post> posts = [
     shares: 27,
   ),
   Post(
-    user: onlineUsers[3],
+    user: onlineUsers[1],
     caption: 'Adventure 🏔',
     timeAgo: '15hr',
     imageUrl:
@@ -195,7 +195,29 @@ final List<Post> posts = [
     shares: 42,
   ),
   Post(
-    user: onlineUsers[9],
+    user: onlineUsers[2],
+    caption:
+        'More placeholder text for the soul: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    timeAgo: '1d',
+    imageUrl:
+        'https://images.unsplash.com/photo-1575535468632-345892291673?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+    likes: 482,
+    comments: 37,
+    shares: 9,
+  ),
+  Post(
+    user: onlineUsers[3],
+    caption:
+        'Please enjoy this placeholder text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    timeAgo: '3hr',
+    imageUrl:
+        'https://images.unsplash.com/photo-1578133671540-edad0b3d689e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+    likes: 683,
+    comments: 79,
+    shares: 18,
+  ),
+  Post(
+    user: onlineUsers[4],
     caption: 'A classic.',
     timeAgo: '1d',
     imageUrl:
